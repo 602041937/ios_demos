@@ -11,14 +11,20 @@ import UIKit
 
 class Mp3RecordController: UIViewController {
     
-    
-    
     static func newInstance() -> Mp3RecordController{
         return UIStoryboard(name: "Mp3Record", bundle: nil).instantiateViewController(withIdentifier: "Mp3RecordController") as! Mp3RecordController
     }
-
+    
+    @IBAction func startRecordClick(_ sender: Any) {
+        Mp3AudioRecord.shared.start()
+    }
+    
+    @IBAction func finishRecordClick(_ sender: Any) {
+        Mp3AudioRecord.shared.finish()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
     }
 }

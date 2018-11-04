@@ -9,18 +9,75 @@
 import UIKit
 import AVFoundation
 import Foundation
+import Toaster
 
 class Mp3AudioRecord: NSObject {
-
+    
     static let shared = Mp3AudioRecord()
     
+    private let cafPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.caf"
+    private let mp3Path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.mp3"
     
-    override init() {
+    private var audioRecrod: AVAudioRecorder?
+    
+    private override init() {
         super.init()
-        
+        do {
+            // 录音会话设置
+            let audioSession = AVAudioSession.sharedInstance()
+            // 设置类别,表示该应用同时支持播放和录音
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            // 启动音频会话管理,此时会阻断后台音乐的播放.
+            try audioSession.setActive(true)
+            
+            // 录音设置
+            var settings: [String: Any] = [:]
+            settings[AVFormatIDKey] = NSNumber(value: kAudioFormatLinearPCM) // 设置录音格式，不支持MP3
+            settings[AVSampleRateKey] = NSNumber(value: 44100) // 设置录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
+            settings[AVNumberOfChannelsKey] = NSNumber(value: 2) // 录音通道数
+            settings[AVLinearPCMBitDepthKey] = NSNumber(value: 16) // 线性采样位数，one of 8, 16, 24, or 32.
+            settings[AVEncoderAudioQualityKey] = NSNumber(value: AVAudioQuality.min.rawValue) // 质量
+            audioRecrod = try AVAudioRecorder(url: URL(string: cafPath)!, settings: settings)
+            audioRecrod?.delegate = self
+            audioRecrod?.prepareToRecord()
+        }catch {
+            print("录音器初始化失败")
+        }
     }
     
     func start() {
-        
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)
+       
+        let timer = Timer.init(timeInterval: 0.05, repeats: true) { (timer) in
+//            print(self.audioRecrod?.currentTime)
+            print(self.audioRecrod?.currentTime)
+        }
+        RunLoop.main.add(timer, forMode: .commonModes)
+        do {
+            if FileManager.default.fileExists(atPath: cafPath) {
+                try FileManager.default.removeItem(atPath: cafPath)
+            }
+            audioRecrod?.record(forDuration: 5)
+            print("录音器开始录音")
+        }catch {
+            print("start失败")
+        }
+    }
+    
+    func finish() {
+        print("录音器结束录音")
+        audioRecrod?.stop()
+    }
+}
+
+extension Mp3AudioRecord: AVAudioRecorderDelegate {
+    
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        print("audioRecorderEncodeErrorDidOccur")
+    }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("audioRecorderDidFinishRecording")
+        print("finishTime=\(recorder.currentTime)")
     }
 }
