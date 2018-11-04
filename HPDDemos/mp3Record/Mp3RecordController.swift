@@ -11,8 +11,7 @@ import UIKit
 
 class Mp3RecordController: UIViewController {
     
-
-
+    
     
     static func newInstance() -> Mp3RecordController{
         return UIStoryboard(name: "Mp3Record", bundle: nil).instantiateViewController(withIdentifier: "Mp3RecordController") as! Mp3RecordController
@@ -22,6 +21,4 @@ class Mp3RecordController: UIViewController {
         super.viewDidLoad()
         
     }
-    
-    
 }
