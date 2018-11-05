@@ -42,7 +42,7 @@ class Mp3AudioRecord: NSObject {
             settings[AVEncoderAudioQualityKey] = NSNumber(value: AVAudioQuality.min.rawValue) // 质量
             audioRecrod = try AVAudioRecorder(url: URL(string: cafPath)!, settings: settings)
             audioRecrod?.delegate = self
-            audioRecrod?.prepareToRecord()
+    
         }catch {
             print("录音器初始化失败")
         }
@@ -55,6 +55,7 @@ class Mp3AudioRecord: NSObject {
             if FileManager.default.fileExists(atPath: cafPath) {
                 try FileManager.default.removeItem(atPath: cafPath)
             }
+            audioRecrod?.prepareToRecord()
             audioRecrod?.record()
             audioRecordProtocol?.audioRecordStart()
             releaseTimer()
