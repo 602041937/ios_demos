@@ -32,6 +32,7 @@
 		EACAF033214B8E8100206BAD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAF032214B8E8100206BAD /* BaseViewController.swift */; };
 		EACAF036214B8FC500206BAD /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAF035214B8FC500206BAD /* ExtensionViewController.swift */; };
 		EACAF038214B90EC00206BAD /* ExtensionViewWithPopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAF037214B90EC00206BAD /* ExtensionViewWithPopWindow.swift */; };
+		EAF2BD742190507F0045D0EA /* HPDAudioRecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BD732190507F0045D0EA /* HPDAudioRecordProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		EACAF032214B8E8100206BAD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EACAF035214B8FC500206BAD /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		EACAF037214B90EC00206BAD /* ExtensionViewWithPopWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewWithPopWindow.swift; sourceTree = "<group>"; };
+		EAF2BD732190507F0045D0EA /* HPDAudioRecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDAudioRecordProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				EA830D0D218EB98400BD2549 /* Mp3AudioRecord.swift */,
+				EAF2BD732190507F0045D0EA /* HPDAudioRecordProtocol.swift */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				EA830D0E218EB98400BD2549 /* Mp3AudioRecord.swift in Sources */,
 				EACAF02D214A541800206BAD /* ContentNilEntity.swift in Sources */,
 				EACAF01F2148F62B00206BAD /* BaseResponse.swift in Sources */,
+				EAF2BD742190507F0045D0EA /* HPDAudioRecordProtocol.swift in Sources */,
 				EAA905AB215126E500776776 /* AppStatusCodeError.swift in Sources */,
 				EAA905A92150C2BF00776776 /* StringExtension.swift in Sources */,
 				EACAF0132147E42C00206BAD /* AlamofireViewController.swift in Sources */,

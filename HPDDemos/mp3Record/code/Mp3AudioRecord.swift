@@ -19,6 +19,9 @@ class Mp3AudioRecord: NSObject {
     private let mp3Path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.mp3"
     
     private var audioRecrod: AVAudioRecorder?
+    private var timer:Timer?
+
+    var audioRecordProtocol:HPDAudioRecordProtocol?
     
     private override init() {
         super.init()
@@ -46,18 +49,20 @@ class Mp3AudioRecord: NSObject {
     }
     
     func start() {
+        
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)
-       
-        let timer = Timer.init(timeInterval: 0.05, repeats: true) { (timer) in
-//            print(self.audioRecrod?.currentTime)
-            print(self.audioRecrod?.currentTime)
-        }
-        RunLoop.main.add(timer, forMode: .commonModes)
         do {
             if FileManager.default.fileExists(atPath: cafPath) {
                 try FileManager.default.removeItem(atPath: cafPath)
             }
-            audioRecrod?.record(forDuration: 5)
+            audioRecrod?.record()
+            audioRecordProtocol?.audioRecordStart()
+            releaseTimer()
+            timer = Timer.init(timeInterval: 1, repeats: true) { [weak self](timer) in
+                print(self?.audioRecrod?.currentTime)
+                self?.audioRecordProtocol?.audioRecordProgress(progress: self?.audioRecrod?.currentTime ?? 0)
+            }
+            RunLoop.main.add(timer!, forMode: .commonModes)
             print("录音器开始录音")
         }catch {
             print("start失败")
@@ -68,6 +73,11 @@ class Mp3AudioRecord: NSObject {
         print("录音器结束录音")
         audioRecrod?.stop()
     }
+    
+    func releaseTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
 }
 
 extension Mp3AudioRecord: AVAudioRecorderDelegate {
@@ -77,7 +87,10 @@ extension Mp3AudioRecord: AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("audioRecorderDidFinishRecording")
-        print("finishTime=\(recorder.currentTime)")
+        if flag {
+            print("audioRecorderDidFinishRecording")
+            releaseTimer()
+            audioRecordProtocol?.audioRecordFinish()
+        }
     }
 }

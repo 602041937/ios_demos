@@ -34,10 +34,23 @@
                                     <action selector="finishRecordClick:" destination="JBp-OD-7yB" eventType="touchUpInside" id="3Lr-lN-oJf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKT-zs-XXa">
+                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LKT-zs-XXa" firstAttribute="centerY" secondItem="6oC-4R-aPm" secondAttribute="centerY" id="UUf-Hi-aUd"/>
+                            <constraint firstItem="LKT-zs-XXa" firstAttribute="centerX" secondItem="6oC-4R-aPm" secondAttribute="centerX" id="hBy-5r-SiC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cOu-JY-aU5"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="LKT-zs-XXa" id="sIM-cI-uqy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Seu-IP-T5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
