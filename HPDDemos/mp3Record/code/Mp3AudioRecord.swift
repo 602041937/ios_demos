@@ -13,6 +13,9 @@ import Toaster
 
 class Mp3AudioRecord: NSObject {
     
+//    1
+    
+    
     static let shared = Mp3AudioRecord()
     
     private let cafPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.caf"
