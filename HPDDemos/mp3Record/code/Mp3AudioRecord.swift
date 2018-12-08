@@ -45,6 +45,7 @@ class Mp3AudioRecord: NSObject {
     
         }catch {
             print("录音器初始化失败")
+            audioRecordProtocol?.audioRecrodError()
         }
     }
     
@@ -85,6 +86,7 @@ extension Mp3AudioRecord: AVAudioRecorderDelegate {
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         print("audioRecorderEncodeErrorDidOccur")
+        audioRecordProtocol?.audioRecrodError()
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {

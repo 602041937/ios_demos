@@ -35,6 +35,11 @@ class Mp3RecordController: UIViewController {
 
 extension Mp3RecordController:HPDAudioRecordProtocol {
     
+    func audioRecrodError() {
+        print("audioRecrodError")
+        label.text = "录音错误"
+    }
+    
     func audioRecordStart() {
         print("audioRecordStart")
         label.text = "录音开始"

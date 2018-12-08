@@ -15,4 +15,6 @@ protocol HPDAudioRecordProtocol {
     func audioRecordProgress(progress: Double)
     
     func audioRecordFinish()
+    
+    func audioRecrodError()
 }
