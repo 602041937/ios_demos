@@ -27,6 +27,11 @@ class Mp3RecordController: UIViewController {
         Mp3AudioRecord.shared.finish()
     }
     
+    @IBAction func transformMP3(_ sender: Any) {
+        print("transformMP3")
+        TransformMP3.transformCAF(toMP3: Mp3AudioRecord.shared.cafPath)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

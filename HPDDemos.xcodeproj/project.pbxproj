@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6617481AA1727CFDD339AA54 /* Pods_HPDDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F6E2211F4A76DC6F9F4907 /* Pods_HPDDemos.framework */; };
+		EA64EB8421BBF34F00A0E511 /* build-lame.md in Resources */ = {isa = PBXBuildFile; fileRef = EA64EB8021BBF34F00A0E511 /* build-lame.md */; };
+		EA64EB8521BBF34F00A0E511 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EA64EB8121BBF34F00A0E511 /* README.md */; };
+		EA64EB8621BBF34F00A0E511 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA64EB8221BBF34F00A0E511 /* libmp3lame.a */; };
+		EA64EB8C21BD36ED00A0E511 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = EA64EB8A21BD36ED00A0E511 /* TransformMP3.m */; };
 		EA830D09218EB50B00BD2549 /* Mp3RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA830D07218EB50B00BD2549 /* Mp3RecordController.swift */; };
 		EA830D0C218EB56700BD2549 /* Mp3Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA830D0B218EB56700BD2549 /* Mp3Record.storyboard */; };
 		EA830D0E218EB98400BD2549 /* Mp3AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA830D0D218EB98400BD2549 /* Mp3AudioRecord.swift */; };
@@ -39,6 +43,13 @@
 		6DCC84F9960B847477A6E3C0 /* Pods-HPDDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPDDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-HPDDemos/Pods-HPDDemos.release.xcconfig"; sourceTree = "<group>"; };
 		D0E497883051AF3F2CC47F2B /* Pods-HPDDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPDDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HPDDemos/Pods-HPDDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		E0F6E2211F4A76DC6F9F4907 /* Pods_HPDDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HPDDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA64EB8021BBF34F00A0E511 /* build-lame.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "build-lame.md"; sourceTree = "<group>"; };
+		EA64EB8121BBF34F00A0E511 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EA64EB8221BBF34F00A0E511 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		EA64EB8321BBF34F00A0E511 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		EA64EB8721BC00B300A0E511 /* App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Bridging-Header.h"; sourceTree = "<group>"; };
+		EA64EB8A21BD36ED00A0E511 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
+		EA64EB8B21BD36ED00A0E511 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
 		EA830D07218EB50B00BD2549 /* Mp3RecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3RecordController.swift; sourceTree = "<group>"; };
 		EA830D0B218EB56700BD2549 /* Mp3Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mp3Record.storyboard; sourceTree = "<group>"; };
 		EA830D0D218EB98400BD2549 /* Mp3AudioRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3AudioRecord.swift; sourceTree = "<group>"; };
@@ -76,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6617481AA1727CFDD339AA54 /* Pods_HPDDemos.framework in Frameworks */,
+				EA64EB8621BBF34F00A0E511 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +111,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EA64EB7F21BBF34F00A0E511 /* lame */ = {
+			isa = PBXGroup;
+			children = (
+				EA64EB8021BBF34F00A0E511 /* build-lame.md */,
+				EA64EB8121BBF34F00A0E511 /* README.md */,
+				EA64EB8221BBF34F00A0E511 /* libmp3lame.a */,
+				EA64EB8321BBF34F00A0E511 /* lame.h */,
+			);
+			path = lame;
+			sourceTree = "<group>";
+		};
+		EA64EB8921BD36DC00A0E511 /* tranformMP3 */ = {
+			isa = PBXGroup;
+			children = (
+				EA64EB8B21BD36ED00A0E511 /* TransformMP3.h */,
+				EA64EB8A21BD36ED00A0E511 /* TransformMP3.m */,
+			);
+			path = tranformMP3;
+			sourceTree = "<group>";
+		};
 		EA830D06218EB47E00BD2549 /* mp3Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,17 +144,12 @@
 		EA830D0F218EDCE300BD2549 /* code */ = {
 			isa = PBXGroup;
 			children = (
+				EA64EB8921BD36DC00A0E511 /* tranformMP3 */,
+				EA64EB7F21BBF34F00A0E511 /* lame */,
 				EA830D0D218EB98400BD2549 /* Mp3AudioRecord.swift */,
 				EAF2BD732190507F0045D0EA /* HPDAudioRecordProtocol.swift */,
 			);
 			path = code;
-			sourceTree = "<group>";
-		};
-		EAA372ED215230830012DFF7 /* aa */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = aa;
 			sourceTree = "<group>";
 		};
 		EACAEFF32147E05500206BAD = {
@@ -151,6 +178,7 @@
 				EACAF034214B8FA400206BAD /* extension */,
 				EACAF031214B8E6D00206BAD /* base */,
 				EACAF0192147F2DA00206BAD /* commonUtils */,
+				EA64EB8721BC00B300A0E511 /* App-Bridging-Header.h */,
 				EACAEFFF2147E05500206BAD /* AppDelegate.swift */,
 				EACAF0012147E05500206BAD /* ViewController.swift */,
 				EACAF0032147E05500206BAD /* Main.storyboard */,
@@ -164,7 +192,6 @@
 		EACAF0112147E0EF00206BAD /* alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				EAA372ED215230830012DFF7 /* aa */,
 				EACAF0162147F0F000206BAD /* code */,
 				EACAF025214907E800206BAD /* BanWordsEntity.swift */,
 				EACAF02721490B8000206BAD /* LessonEntity.swift */,
@@ -276,6 +303,8 @@
 			files = (
 				EACAF00A2147E05A00206BAD /* LaunchScreen.storyboard in Resources */,
 				EACAF0072147E05A00206BAD /* Assets.xcassets in Resources */,
+				EA64EB8421BBF34F00A0E511 /* build-lame.md in Resources */,
+				EA64EB8521BBF34F00A0E511 /* README.md in Resources */,
 				EA830D0C218EB56700BD2549 /* Mp3Record.storyboard in Resources */,
 				EACAF0052147E05500206BAD /* Main.storyboard in Resources */,
 				EACAF0152147E4C100206BAD /* alamofire.storyboard in Resources */,
@@ -353,6 +382,7 @@
 				EACAF0242149072700206BAD /* BaseArrayResponse.swift in Sources */,
 				EA830D0E218EB98400BD2549 /* Mp3AudioRecord.swift in Sources */,
 				EACAF02D214A541800206BAD /* ContentNilEntity.swift in Sources */,
+				EA64EB8C21BD36ED00A0E511 /* TransformMP3.m in Sources */,
 				EACAF01F2148F62B00206BAD /* BaseResponse.swift in Sources */,
 				EAF2BD742190507F0045D0EA /* HPDAudioRecordProtocol.swift in Sources */,
 				EAA905AB215126E500776776 /* AppStatusCodeError.swift in Sources */,
@@ -516,9 +546,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HPDDemos/mp3Record/code/lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hpd.HPDDemos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hpd/Desktop/hpd_work/ios_pro/ios_demos/HPDDemos/App-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -537,9 +572,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HPDDemos/mp3Record/code/lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hpd.HPDDemos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hpd/Desktop/hpd_work/ios_pro/ios_demos/HPDDemos/App-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
