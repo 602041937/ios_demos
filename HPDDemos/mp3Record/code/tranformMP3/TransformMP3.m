@@ -34,8 +34,11 @@
         unsigned char mp3_buffer[MP3_SIZE];
         
         lame_t lame = lame_init();
-        lame_set_in_samplerate(lame, 11025.0);
-        lame_set_VBR(lame, vbr_default);
+        lame_set_in_samplerate(lame, 8000.0);
+//        lame_set_VBR(lame, vbr_default);
+        lame_set_brate(lame, 16);
+        lame_set_mode(lame, 3);
+        lame_set_quality(lame, 2); /* 2=high 5 = medium 7=low 音质*/
         lame_init_params(lame);
         
         do {

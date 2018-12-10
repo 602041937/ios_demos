@@ -16,15 +16,30 @@ class Mp3AudioRecord: NSObject {
     static let shared = Mp3AudioRecord()
     
     let cafPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.caf"
-    private let mp3Path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.mp3"
+    private static let mp3Path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/Recording.mp3"
     
     private var audioRecrod: AVAudioRecorder?
     private var timer:Timer?
     
     var audioRecordProtocol:HPDAudioRecordProtocol?
     
-    private override init() {
-        super.init()
+    func start(mp3Path: String? = mp3Path) {
+        
+        audioRecrod?.delegate = self
+        
+        //请求麦克风权限，刚开始会弹出系统的权限对话框，之后就不会了
+        AVAudioSession.sharedInstance().requestRecordPermission { (granted:Bool) in
+            if granted {
+                self.startRecord()
+            } else {
+                self.audioRecordProtocol?.audioRecrodError()
+            }
+        }
+    }
+    
+    private func startRecord() {
+        
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)
         do {
             // 录音会话设置
             let audioSession = AVAudioSession.sharedInstance()
@@ -32,30 +47,19 @@ class Mp3AudioRecord: NSObject {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             // 启动音频会话管理,此时会阻断后台音乐的播放.
             try audioSession.setActive(true)
-            
             // 录音设置
             var settings: [String: Any] = [:]
             settings[AVFormatIDKey] = NSNumber(value: kAudioFormatLinearPCM) // 设置录音格式，不支持MP3
-            settings[AVSampleRateKey] = NSNumber(value: 11025) // 设置录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
+            settings[AVSampleRateKey] = NSNumber(value: 8000.0) // 设置录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
             settings[AVNumberOfChannelsKey] = NSNumber(value: 2) // 录音通道数
             settings[AVLinearPCMBitDepthKey] = NSNumber(value: 16) // 线性采样位数，one of 8, 16, 24, or 32.
-            settings[AVEncoderAudioQualityKey] = NSNumber(value: AVAudioQuality.min.rawValue) // 质量
+            settings[AVEncoderAudioQualityKey] = NSNumber(value: AVAudioQuality.high.rawValue) // 质量
             audioRecrod = try AVAudioRecorder(url: URL(string: cafPath)!, settings: settings)
-            audioRecrod?.delegate = self
-            
-        }catch {
-            print("录音器初始化失败")
-            audioRecordProtocol?.audioRecrodError()
-        }
-    }
-    
-    func start() {
-        
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)
-        do {
+           
             if FileManager.default.fileExists(atPath: cafPath) {
                 try FileManager.default.removeItem(atPath: cafPath)
             }
+            
             audioRecrod?.prepareToRecord()
             audioRecrod?.record()
             audioRecordProtocol?.audioRecordStart()
