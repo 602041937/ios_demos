@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6617481AA1727CFDD339AA54 /* Pods_HPDDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F6E2211F4A76DC6F9F4907 /* Pods_HPDDemos.framework */; };
+		EA417E5621BFC4E000A5F89F /* HPDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA417E5521BFC4E000A5F89F /* HPDAudioPlayer.swift */; };
+		EA417E5921BFDBB400A5F89F /* HPDAudioPlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA417E5821BFDBB400A5F89F /* HPDAudioPlayerProtocol.swift */; };
 		EA64EB8421BBF34F00A0E511 /* build-lame.md in Resources */ = {isa = PBXBuildFile; fileRef = EA64EB8021BBF34F00A0E511 /* build-lame.md */; };
 		EA64EB8521BBF34F00A0E511 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EA64EB8121BBF34F00A0E511 /* README.md */; };
 		EA64EB8621BBF34F00A0E511 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA64EB8221BBF34F00A0E511 /* libmp3lame.a */; };
@@ -43,6 +45,8 @@
 		6DCC84F9960B847477A6E3C0 /* Pods-HPDDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPDDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-HPDDemos/Pods-HPDDemos.release.xcconfig"; sourceTree = "<group>"; };
 		D0E497883051AF3F2CC47F2B /* Pods-HPDDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPDDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HPDDemos/Pods-HPDDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		E0F6E2211F4A76DC6F9F4907 /* Pods_HPDDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HPDDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA417E5521BFC4E000A5F89F /* HPDAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDAudioPlayer.swift; sourceTree = "<group>"; };
+		EA417E5821BFDBB400A5F89F /* HPDAudioPlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDAudioPlayerProtocol.swift; sourceTree = "<group>"; };
 		EA64EB8021BBF34F00A0E511 /* build-lame.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "build-lame.md"; sourceTree = "<group>"; };
 		EA64EB8121BBF34F00A0E511 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EA64EB8221BBF34F00A0E511 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
@@ -111,6 +115,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EA417E5421BFC48A00A5F89F /* Audio Player */ = {
+			isa = PBXGroup;
+			children = (
+				EA417E5721BFDB2200A5F89F /* code */,
+			);
+			path = "Audio Player";
+			sourceTree = "<group>";
+		};
+		EA417E5721BFDB2200A5F89F /* code */ = {
+			isa = PBXGroup;
+			children = (
+				EA417E5521BFC4E000A5F89F /* HPDAudioPlayer.swift */,
+				EA417E5821BFDBB400A5F89F /* HPDAudioPlayerProtocol.swift */,
+			);
+			path = code;
+			sourceTree = "<group>";
+		};
 		EA64EB7F21BBF34F00A0E511 /* lame */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +194,7 @@
 		EACAEFFE2147E05500206BAD /* HPDDemos */ = {
 			isa = PBXGroup;
 			children = (
+				EA417E5421BFC48A00A5F89F /* Audio Player */,
 				EA830D06218EB47E00BD2549 /* mp3Record */,
 				EACAF0112147E0EF00206BAD /* alamofire */,
 				EACAF034214B8FA400206BAD /* extension */,
@@ -382,7 +404,9 @@
 				EACAF0242149072700206BAD /* BaseArrayResponse.swift in Sources */,
 				EA830D0E218EB98400BD2549 /* Mp3AudioRecord.swift in Sources */,
 				EACAF02D214A541800206BAD /* ContentNilEntity.swift in Sources */,
+				EA417E5921BFDBB400A5F89F /* HPDAudioPlayerProtocol.swift in Sources */,
 				EA64EB8C21BD36ED00A0E511 /* TransformMP3.m in Sources */,
+				EA417E5621BFC4E000A5F89F /* HPDAudioPlayer.swift in Sources */,
 				EACAF01F2148F62B00206BAD /* BaseResponse.swift in Sources */,
 				EAF2BD742190507F0045D0EA /* HPDAudioRecordProtocol.swift in Sources */,
 				EAA905AB215126E500776776 /* AppStatusCodeError.swift in Sources */,

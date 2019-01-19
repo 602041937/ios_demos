@@ -40,6 +40,11 @@ class Mp3RecordController: UIViewController {
 
 extension Mp3RecordController:HPDAudioRecordProtocol {
     
+    func audioRecordFinish(mp3Path: String?) {
+        print("audioRecordFinish = \(mp3Path)")
+        label.text = "录音结束"
+    }
+    
     func audioRecrodError() {
         print("audioRecrodError")
         label.text = "录音错误"
@@ -53,10 +58,5 @@ extension Mp3RecordController:HPDAudioRecordProtocol {
     func audioRecordProgress(progress: Double) {
         print("audioRecordProgress")
         label.text = "录音进度\(progress)"
-    }
-    
-    func audioRecordFinish() {
-        print("audioRecordFinish")
-        label.text = "录音结束"
     }
 }

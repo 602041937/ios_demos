@@ -55,6 +55,7 @@
         lame_close(lame);
         fclose(mp3);
         fclose(pcm);
+        
     }
     @catch (NSException *exception) {
         NSLog(@"error = %@",[exception description]);
@@ -62,7 +63,6 @@
     @finally {
         NSLog(@"MP3生成成功!!!");
         return dict;
-       
     }
 }
 

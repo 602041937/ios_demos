@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 import Foundation
-import Toaster
 
 class Mp3AudioRecord: NSObject {
     
@@ -20,12 +19,11 @@ class Mp3AudioRecord: NSObject {
     
     private var audioRecrod: AVAudioRecorder?
     private var timer:Timer?
+    private var startTime:Double? = 0
     
     var audioRecordProtocol:HPDAudioRecordProtocol?
     
     func start(mp3Path: String? = mp3Path) {
-        
-        audioRecrod?.delegate = self
         
         //请求麦克风权限，刚开始会弹出系统的权限对话框，之后就不会了
         AVAudioSession.sharedInstance().requestRecordPermission { (granted:Bool) in
@@ -38,8 +36,6 @@ class Mp3AudioRecord: NSObject {
     }
     
     private func startRecord() {
-        
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)
         do {
             // 录音会话设置
             let audioSession = AVAudioSession.sharedInstance()
@@ -60,18 +56,24 @@ class Mp3AudioRecord: NSObject {
                 try FileManager.default.removeItem(atPath: cafPath)
             }
             
+            audioRecrod?.delegate = self
             audioRecrod?.prepareToRecord()
             audioRecrod?.record()
+            startTime = audioRecrod?.deviceCurrentTime
             audioRecordProtocol?.audioRecordStart()
             releaseTimer()
             timer = Timer.init(timeInterval: 1, repeats: true) { [weak self](timer) in
-                print(self?.audioRecrod?.currentTime)
-                self?.audioRecordProtocol?.audioRecordProgress(progress: self?.audioRecrod?.currentTime ?? 0)
+                //当录音时，如果使用self?.audioRecrod?.currentTime，插入耳机后获取到的数据会变成负数
+                //self?.audioRecordProtocol?.audioRecordProgress(progress: self?.audioRecrod?.currentTime ?? 0)
+                if let currentTime = self?.audioRecrod?.deviceCurrentTime,let startTime = self?.startTime {
+                    self?.audioRecordProtocol?.audioRecordProgress(progress: currentTime - startTime)
+                }
             }
             RunLoop.main.add(timer!, forMode: .commonModes)
             print("录音器开始录音")
         }catch {
             print("start失败")
+            releaseTimer()
             audioRecordProtocol?.audioRecrodError()
         }
     }
@@ -91,14 +93,19 @@ extension Mp3AudioRecord: AVAudioRecorderDelegate {
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         print("audioRecorderEncodeErrorDidOccur")
+        releaseTimer()
         audioRecordProtocol?.audioRecrodError()
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        releaseTimer()
         if flag {
             print("audioRecorderDidFinishRecording")
-            releaseTimer()
-            audioRecordProtocol?.audioRecordFinish()
+            var filePath:String?
+            if let info = TransformMP3.transformCAF(toMP3: Mp3AudioRecord.shared.cafPath) as? [String:String] {
+                filePath = info["filePath"]
+            }
+            audioRecordProtocol?.audioRecordFinish(mp3Path:filePath)
         }else {
             audioRecordProtocol?.audioRecrodError()
         }
