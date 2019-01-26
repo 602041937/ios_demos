@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
-        window?.rootViewController = Mp3RecordController.newInstance()
+        window?.rootViewController = RxSwiftViewController.newInstance()
         return true
     }
 

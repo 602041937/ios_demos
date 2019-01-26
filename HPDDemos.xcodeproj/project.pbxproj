@@ -38,6 +38,9 @@
 		EACAF033214B8E8100206BAD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAF032214B8E8100206BAD /* BaseViewController.swift */; };
 		EACAF036214B8FC500206BAD /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAF035214B8FC500206BAD /* ExtensionViewController.swift */; };
 		EACAF038214B90EC00206BAD /* ExtensionViewWithPopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAF037214B90EC00206BAD /* ExtensionViewWithPopWindow.swift */; };
+		EAEF5C7221F328AC00F5D32F /* RxSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF5C7121F328AC00F5D32F /* RxSwiftViewController.swift */; };
+		EAEF5C7421F7013100F5D32F /* rx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEF5C7321F7013100F5D32F /* rx.storyboard */; };
+		EAEF5C7621F7050D00F5D32F /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF5C7521F7050D00F5D32F /* TestViewModel.swift */; };
 		EAF2BD742190507F0045D0EA /* HPDAudioRecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BD732190507F0045D0EA /* HPDAudioRecordProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +85,9 @@
 		EACAF032214B8E8100206BAD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EACAF035214B8FC500206BAD /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		EACAF037214B90EC00206BAD /* ExtensionViewWithPopWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewWithPopWindow.swift; sourceTree = "<group>"; };
+		EAEF5C7121F328AC00F5D32F /* RxSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftViewController.swift; sourceTree = "<group>"; };
+		EAEF5C7321F7013100F5D32F /* rx.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = rx.storyboard; sourceTree = "<group>"; };
+		EAEF5C7521F7050D00F5D32F /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		EAF2BD732190507F0045D0EA /* HPDAudioRecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDAudioRecordProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +200,7 @@
 		EACAEFFE2147E05500206BAD /* HPDDemos */ = {
 			isa = PBXGroup;
 			children = (
+				EAEF5C7021F3283900F5D32F /* rxswift */,
 				EA417E5421BFC48A00A5F89F /* Audio Player */,
 				EA830D06218EB47E00BD2549 /* mp3Record */,
 				EACAF0112147E0EF00206BAD /* alamofire */,
@@ -263,6 +270,16 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
+		EAEF5C7021F3283900F5D32F /* rxswift */ = {
+			isa = PBXGroup;
+			children = (
+				EAEF5C7121F328AC00F5D32F /* RxSwiftViewController.swift */,
+				EAEF5C7321F7013100F5D32F /* rx.storyboard */,
+				EAEF5C7521F7050D00F5D32F /* TestViewModel.swift */,
+			);
+			path = rxswift;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +346,7 @@
 				EA64EB8521BBF34F00A0E511 /* README.md in Resources */,
 				EA830D0C218EB56700BD2549 /* Mp3Record.storyboard in Resources */,
 				EACAF0052147E05500206BAD /* Main.storyboard in Resources */,
+				EAEF5C7421F7013100F5D32F /* rx.storyboard in Resources */,
 				EACAF0152147E4C100206BAD /* alamofire.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,20 +379,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HPDDemos/Pods-HPDDemos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTryCatch/SwiftTryCatch.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTryCatch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
@@ -403,6 +429,7 @@
 				EACAF01B2147F32E00206BAD /* Print.swift in Sources */,
 				EACAF0242149072700206BAD /* BaseArrayResponse.swift in Sources */,
 				EA830D0E218EB98400BD2549 /* Mp3AudioRecord.swift in Sources */,
+				EAEF5C7621F7050D00F5D32F /* TestViewModel.swift in Sources */,
 				EACAF02D214A541800206BAD /* ContentNilEntity.swift in Sources */,
 				EA417E5921BFDBB400A5F89F /* HPDAudioPlayerProtocol.swift in Sources */,
 				EA64EB8C21BD36ED00A0E511 /* TransformMP3.m in Sources */,
@@ -411,6 +438,7 @@
 				EAF2BD742190507F0045D0EA /* HPDAudioRecordProtocol.swift in Sources */,
 				EAA905AB215126E500776776 /* AppStatusCodeError.swift in Sources */,
 				EAA905A92150C2BF00776776 /* StringExtension.swift in Sources */,
+				EAEF5C7221F328AC00F5D32F /* RxSwiftViewController.swift in Sources */,
 				EACAF0132147E42C00206BAD /* AlamofireViewController.swift in Sources */,
 				EACAF038214B90EC00206BAD /* ExtensionViewWithPopWindow.swift in Sources */,
 				EACAF0002147E05500206BAD /* AppDelegate.swift in Sources */,
