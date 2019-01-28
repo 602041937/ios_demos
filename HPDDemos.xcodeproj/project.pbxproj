@@ -17,6 +17,7 @@
 		EA830D09218EB50B00BD2549 /* Mp3RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA830D07218EB50B00BD2549 /* Mp3RecordController.swift */; };
 		EA830D0C218EB56700BD2549 /* Mp3Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA830D0B218EB56700BD2549 /* Mp3Record.storyboard */; };
 		EA830D0E218EB98400BD2549 /* Mp3AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA830D0D218EB98400BD2549 /* Mp3AudioRecord.swift */; };
+		EA860EBE21FDAEDD0081D8CB /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA860EBD21FDAEDD0081D8CB /* Student.swift */; };
 		EAA905A92150C2BF00776776 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA905A82150C2BF00776776 /* StringExtension.swift */; };
 		EAA905AB215126E500776776 /* AppStatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA905AA215126E500776776 /* AppStatusCodeError.swift */; };
 		EACAF0002147E05500206BAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEFFF2147E05500206BAD /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		EA830D07218EB50B00BD2549 /* Mp3RecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3RecordController.swift; sourceTree = "<group>"; };
 		EA830D0B218EB56700BD2549 /* Mp3Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mp3Record.storyboard; sourceTree = "<group>"; };
 		EA830D0D218EB98400BD2549 /* Mp3AudioRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3AudioRecord.swift; sourceTree = "<group>"; };
+		EA860EBD21FDAEDD0081D8CB /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		EAA905A82150C2BF00776776 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EAA905AA215126E500776776 /* AppStatusCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatusCodeError.swift; sourceTree = "<group>"; };
 		EAA905AC2151308C00776776 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				EAEF5C7121F328AC00F5D32F /* RxSwiftViewController.swift */,
 				EAEF5C7321F7013100F5D32F /* rx.storyboard */,
 				EAEF5C7521F7050D00F5D32F /* TestViewModel.swift */,
+				EA860EBD21FDAEDD0081D8CB /* Student.swift */,
 			);
 			path = rxswift;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				EACAF01D2148E09400206BAD /* WeatherResponse.swift in Sources */,
 				EACAF033214B8E8100206BAD /* BaseViewController.swift in Sources */,
 				EACAF0182147F16700206BAD /* NetUtils.swift in Sources */,
+				EA860EBE21FDAEDD0081D8CB /* Student.swift in Sources */,
 				EACAF0212148F8AA00206BAD /* RoomCommentResponse.swift in Sources */,
 				EACAF026214907E800206BAD /* BanWordsEntity.swift in Sources */,
 				EACAF01B2147F32E00206BAD /* Print.swift in Sources */,

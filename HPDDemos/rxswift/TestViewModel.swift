@@ -10,47 +10,49 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol TestInput {
-    var name: BehaviorSubject<String> { get set }
-    var password: BehaviorSubject<String> { get set }
-}
-
-protocol TestOutput {
-    var nameWarnHidden: BehaviorSubject<Bool> { get }
-    var passwordWarnHidden: BehaviorSubject<Bool> { get }
-    var loginBtnEnable: BehaviorSubject<Bool> { get }
-}
-
-protocol TestViewModelType {
-    var input:TestInput { get }
-    var output:TestOutput { get }
-}
-
-class TestViewModel:TestViewModelType,TestInput,TestOutput {
+class TestViewModel {
     
-    var output: TestOutput { return self }
-    var input: TestInput { return self }
+    struct Input {
+        let name = BehaviorSubject<String>(value:"")
+        let password = BehaviorSubject<String>(value:"")
+        let testObserver: AnyObserver<Any>!
+    }
     
-    var name = BehaviorSubject<String>(value:"")
-    var password = BehaviorSubject<String>(value:"")
+    struct Output {
+        let nameWarnHidden = BehaviorSubject<Bool>(value:true)
+        let passwordWarnHidden = BehaviorSubject<Bool>(value:true)
+        let loginBtnEnable = BehaviorSubject<Bool>(value:true)
+        let students = BehaviorSubject<[Student]>(value:[])
+    }
     
-    var nameWarnHidden = BehaviorSubject<Bool>(value:true)
-    var passwordWarnHidden =  BehaviorSubject<Bool>(value:true)
-    var loginBtnEnable = BehaviorSubject<Bool>(value:true)
+    let input:Input
+    let output:Output
     
-    init() {
+    init(disposeBag: DisposeBag) {
+        
+        input = Input(testObserver: AnyObserver.)
+        
+        output = Output()
+        
         input.name.subscribe(onNext:{ text in
-            self.nameWarnHidden.onNext(text.count == 0)
-        })
+            self.output.nameWarnHidden.onNext(text.count == 0)
+        }).disposed(by: disposeBag)
         
         input.password.subscribe(onNext: { (text) in
-            self.passwordWarnHidden.onNext(text.count == 0)
-        })
+            self.output.passwordWarnHidden.onNext(text.count == 0)
+        }).disposed(by: disposeBag)
         
         Observable.combineLatest(input.name, input.password) { (name, password) -> Bool in
             return name.count == 0 && password.count == 0
             }.subscribe(onNext: { (enable) in
-                self.loginBtnEnable.onNext(!enable)
-            })
+                self.output.loginBtnEnable.onNext(!enable)
+            }).disposed(by: disposeBag)
+        
+        //        addStudentBtnTap = {
+        //            if var a = try? self.output.students.value(){
+        //               a.append(Student())
+        //               self.output.students.onNext(a)
+        //            }
+        //        }
     }
 }

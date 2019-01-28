@@ -51,11 +51,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLj-XE-VP0">
+                                <rect key="frame" x="104" y="372" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="添加学生"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3DG-64-PN7"/>
                     </view>
                     <connections>
+                        <outlet property="addStudentBtn" destination="pLj-XE-VP0" id="vuQ-JB-Ydw"/>
                         <outlet property="btn" destination="AtD-EK-JRV" id="yJR-iz-VcN"/>
                         <outlet property="nameLB" destination="1m0-tr-3od" id="ZbP-vg-N4U"/>
                         <outlet property="nameTF" destination="xSP-CX-gPp" id="xiO-si-9xX"/>
